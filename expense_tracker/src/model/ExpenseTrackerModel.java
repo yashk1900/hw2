@@ -4,7 +4,8 @@ import java.util.List;
 
 public class ExpenseTrackerModel {
 
-  public List<Transaction> transactions;
+  // IMPLEMENTING ENCAPSULATION
+  private final List<Transaction> transactions;
 
   public ExpenseTrackerModel() {
     transactions = new ArrayList<>(); 
@@ -19,7 +20,11 @@ public class ExpenseTrackerModel {
   }
 
   public List<Transaction> getTransactions() {
-    return transactions;
+
+    // RETURN A SHALLOW COPY OF THE LIST, PREVENTING UNWANTED MUTABILITY
+    List<Transaction> copyOfTransactions = new ArrayList<Transaction>();
+    copyOfTransactions.addAll(this.transactions);
+    return copyOfTransactions;
   }
 
 }
