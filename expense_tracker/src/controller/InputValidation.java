@@ -1,13 +1,12 @@
 package controller;
-
 import java.util.Arrays;
 
+//Input Validation Java file....for checking valid amount and valid Category input....used both in input fields and search fields
 public class InputValidation {
 
-  public static boolean isValidAmount(double amount) {
-    
+  public static boolean isValidAmount(double amount) {    
     // Check range
-    if(amount >1000) {
+    if(amount >= 1000) {
       return false;
     }
     if (amount < 0){
@@ -33,15 +32,13 @@ public class InputValidation {
       return false;
     }
 
+    //predefined valid category list
     String[] validWords = {"food", "travel", "bills", "entertainment", "other"};
 
     if(!Arrays.asList(validWords).contains(category.toLowerCase())) {
-      // invalid word  
-      return false;
+      return false; //invalid words
     }
-  
-    return true;
-  
-  }
 
+    return true;  
+  }
 }
