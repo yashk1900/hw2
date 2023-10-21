@@ -34,7 +34,7 @@ public class ExpenseTrackerApp {
         JOptionPane.showMessageDialog(view, "Invalid amount or category entered");
         view.toFront();
       }
-
+      
     });
 
     // // handler remove transaction btn clicks

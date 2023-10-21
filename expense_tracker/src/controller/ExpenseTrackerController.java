@@ -43,6 +43,7 @@ public class ExpenseTrackerController {
     model.addTransaction(t);
     view.getTableModel().addRow(new Object[]{t.getAmount(), t.getCategory(), t.getTimestamp()});
     refresh();
+
     return true;
   }
 
@@ -56,6 +57,8 @@ public class ExpenseTrackerController {
     if(!transactionFilter.inputValidation()) {
       return false;
     }
+
+
 
     List<Transaction> filter_Transactions = transactionFilter.filter(transactions);
     highlightFilters(filter_Transactions);

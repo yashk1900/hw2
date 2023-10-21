@@ -124,6 +124,7 @@ public class ExpenseTrackerView extends JFrame {
   
       // Fire table update
       transactionsTable.updateUI();
+      highlightTableReset();
   
   }
 
@@ -185,7 +186,6 @@ public class ExpenseTrackerView extends JFrame {
     return categoryFilterField.getText();
   }
 
-
   //row highlight setter
   public void highlightTable(List<Transaction> transactions) {
     //re rendering the transaction view with highlights
@@ -194,6 +194,32 @@ public class ExpenseTrackerView extends JFrame {
 
     //storing required rows for future highlighting
     Set<Integer> rowIndex = findTransactionRowIndex(transactions);
+
+    transactionsTable.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+      @Override
+      public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
+        Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
+
+        // Check if the current row is to be highlighted
+        if (rowIndex.contains(row)) {
+          c.setBackground(Color.GREEN);
+        } else {
+          c.setBackground(table.getBackground());
+        }
+
+        return c;
+      }
+    });
+    transactionsTable.repaint();
+  }
+
+  //row highlight setter
+  public void highlightTableReset() {
+    //re rendering the transaction view with highlights
+    DefaultTableCellRenderer rendered_view = new DefaultTableCellRenderer();
+    
+    //storing required rows for future highlighting
+    Set<Integer> rowIndex = findAllTransactionsRowIndex();
 
     transactionsTable.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
       @Override
@@ -227,6 +253,12 @@ public class ExpenseTrackerView extends JFrame {
       }
     }
     return rowIndexes;
+  }
+
+  //function to return all rows indexes
+  private Set<Integer> findAllTransactionsRowIndex() {
+    Set<Integer> allRowIndexes = new HashSet<>();
+    return allRowIndexes;
   }
 
 }
