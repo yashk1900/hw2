@@ -1,3 +1,4 @@
+// import javax.sound.midi.SysexMessage;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import controller.AmountFilter;
@@ -35,6 +36,18 @@ public class ExpenseTrackerApp {
       }
 
     });
+
+    // // handler remove transaction btn clicks
+    // view.getRemoveTransactionBtn().addActionListener(e -> {
+    //   // Get transaction data from view
+    //   int rowNumber = view.getTransactionsTable().getSelectedRow();
+    //   double selected_amount = (double)view.getTransactionsTable().getValueAt(rowNumber, 1);
+    //   String selected_category = (String)view.getTransactionsTable().getValueAt(rowNumber, 2);
+    //   String selected_date = (String)view.getTransactionsTable().getValueAt(rowNumber, 3);
+
+    //   // pass this data to controller
+    //   controller.removeTransaction(selected_amount, selected_category,selected_date);
+    // });
 
     view.getFilterAmountBtn().addActionListener(e -> {
       // Get transaction data from view

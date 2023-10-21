@@ -62,5 +62,18 @@ public class ExpenseTrackerController {
     return true;
   }
 
+  // public void removeTransaction(double amount, String category, String date_time){
+  //   List<Transaction> transactions = model.getTransactions();
+
+  //   // check if all 3 are equal to any of the transactions
+  //   for(Transaction transaction : transactions){
+  //     if(transaction.getAmount() == amount && transaction.getCategory() == category && transaction.getTimestamp() == date_time){
+  //       model.removeTransaction(transaction);
+  //       break;
+  //     }
+  //   }
+  //   refresh();
+  // }
+
   // Other controller methods
 }

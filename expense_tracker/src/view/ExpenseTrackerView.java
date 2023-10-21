@@ -18,6 +18,8 @@ public class ExpenseTrackerView extends JFrame {
   private JButton addTransactionBtn;
   private JButton filterCategoryBtn;
   private JButton filterAmountBtn;
+  // to remove a transaction
+  // private JButton removeTransactionBtn;
   private JFormattedTextField amountFilterField;
   private JTextField categoryFilterField;
   private JFormattedTextField amountField;
@@ -35,6 +37,7 @@ public class ExpenseTrackerView extends JFrame {
     addTransactionBtn = new JButton("Add Transaction");
     filterAmountBtn = new JButton("Filter via Amount");
     filterCategoryBtn = new JButton("Filter via Category");
+    // removeTransactionBtn = new JButton("Remove Selected Transaction");
 
     // Create UI components
     JLabel amountLabel = new JLabel("Amount:");
@@ -69,6 +72,8 @@ public class ExpenseTrackerView extends JFrame {
 
     // Create table
     transactionsTable = new JTable(model);
+    // transactionsTable.setSelectionBackground(Color.red);
+    // transactionsTable.setSelectionForeground(Color.black);
 
     // Layout components
     JPanel filterPanel = new JPanel();
@@ -81,6 +86,7 @@ public class ExpenseTrackerView extends JFrame {
   
     JPanel buttonPanel = new JPanel();
     buttonPanel.add(addTransactionBtn);
+    // buttonPanel.add(removeTransactionBtn);
     JPanel mainPanel = new JPanel();
     mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
     mainPanel.add(inputPanel);
@@ -124,6 +130,10 @@ public class ExpenseTrackerView extends JFrame {
   public JButton getFilterAmountBtn() {
     return filterAmountBtn;
   }
+
+  // public JButton getRemoveTransactionBtn(){
+  //   return removeTransactionBtn;
+  // }
 
   public JButton getFilterCategoryBtn() {
     return filterCategoryBtn;
